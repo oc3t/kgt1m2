@@ -3,12 +3,13 @@ package org.example;
 import java.util.Scanner;
 import java.util.Arrays;
 
-class Student {// Mewakili mahasiswa dengan nama, fakultas, program studi, dan tindakan seperti keluar dan melihat buku yang tersedia.
+class Student {
     static String Nama;
     static String Fakultas;
     static String programStudi;
 
     static void displayBooks(String[][] databuku){
+        Scanner input = new Scanner(System.in);
         System.out.println("===========================================================================================");
         System.out.println("|| No.\t|| Id buku\t\t|| Nama Buku\t|| Author\t|| Genre\t|| Stock ||");
         System.out.println("===========================================================================================");
@@ -16,14 +17,15 @@ class Student {// Mewakili mahasiswa dengan nama, fakultas, program studi, dan t
             System.out.println("|| "+buku[0]+"\t|| "+buku[1]+"\t|| "+buku[2]+"\t|| "+buku[3]+"\t|| "+buku[4]+"\t|| "+buku[5]+"\t ||");
         }
         System.out.println("===========================================================================================\n");
-        System.out.println("Input Id buku yang ingin dipinjam (input 99 untuk kembali)");
+        System.out.print("Input Id buku yang ingin dipinjam: ");
+        String idBukuDipinjam = input.nextLine();
     }
     static void logout(){
         System.out.println("System Logout...\n");
     }
 }
 
-class Admin {//Mewakili admin dengan fungsi untuk enambah mahasiswa dan nampilkan daftar mahasiswa.
+class Admin {
     static String adminUsername = "admin";
     static String adminPassword = "admln";
     static String murid[][];
@@ -78,7 +80,7 @@ class Main {
             {"M. Rangga Hari F", "Teknik","202310370311125","Informatika"},
     };
 
-    static void menu(){//nampilkan pilihan
+    static void menu(){
         System.out.println("===== Library System =====");
         System.out.println("1. Login as Student");
         System.out.println("2. Login as Admin");
@@ -97,7 +99,7 @@ class Main {
         }
     }
 
-    static void menuAdmin(){//nyediakan pilihan
+    static void menuAdmin(){
         while(true){
             System.out.println("=== Admin Menu ===");
             System.out.println("1. Add Student");
@@ -117,7 +119,7 @@ class Main {
         }
     }
 
-    static void menuStudent(){//menyediakan pilihan
+    static void menuStudent(){
         while(true){
             System.out.println("=== Student Menu ===");
             System.out.println("1. Pinjam buku");
